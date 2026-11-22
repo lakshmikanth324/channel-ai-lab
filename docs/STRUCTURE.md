@@ -1,24 +1,15 @@
 channel-ai-lab/
 ├── data/
 │   ├── raw/
-│   ├── processed/
-│   └── README.md
-├── sql/
+│   └── processed/
 ├── src/
-│   ├── __init__.py
-│   ├── config.py
 │   ├── data/
 │   ├── features/
-│   ├── matching/
-│   ├── models/
-│   ├── rag/
-│   └── agent/
-├── api/
-├── app/
+│   └── matching/
+├── sql/
 ├── notebooks/
 ├── tests/
 ├── docs/
-├── scripts/
+├── README.md
 ├── pyproject.toml
-├── .env.example
-└── README.md
+└── .gitignore
