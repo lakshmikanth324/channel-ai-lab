@@ -1,0 +1,49 @@
+Job Overview
+About TE Connectivity & the Channel BU
+TE Connectivity is a global technology leader that designs and manufactures connectivity and sensor solutions, serving industries that are transforming the future. The Channel Business Unit (CBU) manages TE''s global distribution network and plays a critical role in driving growth, enhancing customer experience, and enabling commercial excellence across 300+ distributor partners worldwide. Channel BU brings together Sales Enablement, Marketing, Pricing, Customer Service, Digital, and PMO functions to accelerate revenue, deliver digitally enabled experiences, and achieve above-market growth.
+Role Definition
+We are seeking a skilled and motivated Data Scientist & AI Developer to join our India-based analytics team supporting the Channel Business Unit. This individual contributor role is responsible for designing, developing, and deploying AI/ML models, data science solutions, and intelligent automation capabilities that drive measurable business impact across Channel operations, including sales forecasting, POS match-rate optimization, customer segmentation, pricing intelligence, NLP-based automation, and agentic AI solutions.
+The ideal candidate combines strong technical depth in machine learning, statistical modeling, and software engineering with the ability to collaborate effectively with business stakeholders, translating complex business problems into actionable AI-driven solutions. This role requires a self-starter who can independently manage the full data science lifecycle, from problem framing and exploratory data analysis through model development, validation, deployment, and monitoring, while contributing to a culture of innovation and continuous learning.
+Based in Bangalore, India, this role will report to the India-based Data Analytics & Data Science Delivery Manager and partner closely with the NA-based Data & Analytics product owner, Channel AI Principal, Channel BU leadership, global DIA teams, and cross-functional stakeholders across AMER, EMEA, and APAC regions.
+
+
+Tasks and Responsibilities
+AI/ML Model Development & Deployment
+Design, develop, and deploy machine learning and statistical models for key business use cases including forecasting, customer segmentation, pricing optimization, automation, cross-sell, and churn prediction.
+Perform exploratory data analysis, feature engineering, and data preparation using diverse enterprise data sources.
+Build and maintain scalable ML pipelines using Databricks, MLflow, and cloud technologies for training, deployment, monitoring, and model lifecycle management.
+Develop NLP solutions such as text classification, entity extraction, sentiment analysis, and summarization to enhance business processes.
+Implement model governance practices including versioning, A/B testing, drift monitoring, retraining, and documentation.
+Agentic AI & Intelligent Automation
+Design and develop agentic AI solutions, conversational AI experiences, and intelligent automation workflows that improve business access to data and insights.
+Evaluate and apply emerging AI technologies including LLMs, RAG, prompt engineering, and cognitive automation across business functions.
+Build and scale AI proof-of-concepts from ideation through production deployment.
+Partner with AI leadership to assess technologies and recommend solutions aligned with business priorities.
+Data Engineering & Platform Enablement
+Develop SQL and Python-based ETL/ELT processes supporting analytics and AI/ML development on the Databricks platform.
+Build and maintain curated datasets, feature stores, and data assets that accelerate model development and reuse.
+Collaborate with data engineering and governance teams to ensure data quality, lineage, security, and compliance.
+Support migration and modernization of analytics and data science solutions onto Databricks.
+Business Partnership & Insight Delivery
+Work closely with stakeholders across Sales, Marketing, Customer Care, Pricing, and Strategy to identify opportunities and deliver data science solutions with measurable business impact.
+Translate analytical results into actionable insights through data storytelling, visualizations, and executive-ready presentations.
+Present recommendations to technical and non-technical audiences and support adoption of AI-driven solutions.
+Contribute to business case development, feasibility assessments, and value estimation for new AI initiatives.
+Responsible AI & Continuous Learning
+Ensure AI/ML solutions comply with enterprise standards for responsible AI, privacy, governance, bias mitigation, and regulatory requirements.
+Develop KPIs and monitoring frameworks to track model performance, adoption, and business value.
+Stay current on AI/ML advancements and share knowledge through mentoring, documentation, reviews, and community engagement.
+Contribute reusable best practices, frameworks, and lessons learned to strengthen team capabilities.
+
+
+What your background should look like:
+Bachelor''s degree in Computer Science, Data Science, Statistics, Mathematics, Engineering (BE/BTech), or related quantitative field. Master''s degree (MS/MTech) in Machine Learning, AI, Data Science, or related discipline is preferred.
+58 years of progressive experience in data science, machine learning engineering, AI development, or applied research roles.
+Strong hands-on proficiency in Python (NumPy, Pandas, Scikit-learn, TensorFlow/PyTorch, XGBoost, LightGBM) and SQL for data manipulation, analysis, and model development.
+3+ years of experience building and deploying ML models in production environments, including experience with ML pipelines, model serving, and monitoring.
+3+ years of experience with cloud data platforms (Databricks, Azure ML, AWS SageMaker, or equivalent) and modern data architecture.
+Demonstrated experience with NLP techniques (text classification, named entity recognition, sentiment analysis, LLM fine-tuning, RAG architectures) and/or time-series forecasting.
+Familiarity with MLOps practices including MLflow, model versioning, CI/CD for ML, experiment tracking, and automated retraining.
+Solid understanding of data warehousing concepts (star/snowflake schemas, ETL/ELT, incremental loading) and data governance principles.
+Experience working with BI and visualization tools (Power BI, Tableau.
+Exposure to agentic AI frameworks, LLM application development, and conversational AI.
