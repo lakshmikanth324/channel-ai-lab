@@ -25,13 +25,7 @@ st.caption(
     "Test predictions use a one-step-ahead backtest."
 )
 
-if test_months.empty:
-    st.warning("No test-period predictions are available.")
-    st.stop()
 
-st.caption(
-    f"Test period: {test_months.min():%Y-%m} through {test_months.max():%Y-%m}."
-)
 with st.sidebar:
     st.header("Forecast settings")
     database_path = Path(os.environ.get("CHANNEL_AI_DB", str(DEFAULT_DATABASE)))
@@ -48,7 +42,17 @@ try:
 except (ValueError, OSError, Exception) as error:
     st.error(f"Could not build forecasts: {error}")
     st.stop()
-test_months = predictions.loc[predictions["split"] == "test", "month"]
+test_months = predictions.loc[
+    predictions["split"] == "test", "month"
+].dropna()
+
+if test_months.empty:
+    st.warning("No valid test-period dates are available.")
+    st.stop()
+
+st.caption(
+    f"Test period: {test_months.min():%Y-%m} through {test_months.max():%Y-%m}."
+)
 with st.sidebar:
     st.header("Result filters")
     regions = sorted(predictions["region"].dropna().astype(str).unique())
