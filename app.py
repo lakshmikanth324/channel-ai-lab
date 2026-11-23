@@ -25,7 +25,7 @@ st.caption(
     "Test predictions use a one-step-ahead backtest."
 )
 
-
+test_months = predictions.loc[predictions["split"] == "test", "month"]
 if test_months.empty:
     st.warning("No test-period predictions are available.")
     st.stop()
