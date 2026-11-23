@@ -11,12 +11,20 @@ RAW_DATA_DIR = PROJECT_ROOT / "data" / "raw"
 DATABASE_PATH = PROJECT_ROOT / "channel_ai_lab.db"
 
 
+POS_MATCHING_COLUMNS = {
+    "matched_product_id": "TEXT",
+    "match_method": "TEXT",
+    "match_confidence": "REAL",
+    "review_status": "TEXT NOT NULL DEFAULT 'pending'",
+}
+
+
 SCHEMA = """
 CREATE TABLE IF NOT EXISTS ingest_batches (
     batch_id TEXT PRIMARY KEY,
     source TEXT NOT NULL,
     status TEXT NOT NULL,
-    started_at TEXT NOT NOT NULL,
+    started_at TEXT NOT NULL,
     completed_at TEXT,
     row_counts TEXT NOT NULL,
     error_message TEXT
@@ -56,6 +64,10 @@ CREATE TABLE IF NOT EXISTS pos_records (
     pos_product_code TEXT,
     quantity INTEGER NOT NULL,
     batch_id TEXT NOT NULL,
+    matched_product_id TEXT,
+    match_method TEXT,
+    match_confidence REAL,
+    review_status TEXT NOT NULL DEFAULT 'pending',
     FOREIGN KEY (distributor_id) REFERENCES distributors(distributor_id),
     FOREIGN KEY (batch_id) REFERENCES ingest_batches(batch_id)
 );
@@ -65,6 +77,24 @@ CREATE INDEX IF NOT EXISTS ix_sales_distributor ON sales(distributor_id);
 CREATE INDEX IF NOT EXISTS ix_pos_date ON pos_records(pos_date);
 CREATE INDEX IF NOT EXISTS ix_pos_batch ON pos_records(batch_id);
 """
+
+
+def migrate_pos_records_schema(connection: sqlite3.Connection) -> None:
+    """Add matcher fields to existing databases; safe to run repeatedly."""
+    existing = {
+        row[1]
+        for row in connection.execute("PRAGMA table_info(pos_records)").fetchall()
+    }
+    for name, definition in POS_MATCHING_COLUMNS.items():
+        if name not in existing:
+            connection.execute(
+                f"ALTER TABLE pos_records ADD COLUMN {name} {definition}"
+            )
+
+    # Older databases may already have the column but contain NULL review states.
+    connection.execute(
+        "UPDATE pos_records SET review_status = 'pending' WHERE review_status IS NULL"
+    )
 
 
 def utc_now() -> str:
@@ -95,6 +125,7 @@ def import_csv_to_sqlite(database_path: Path = DATABASE_PATH, raw_data_dir: Path
     with sqlite3.connect(database_path) as connection:
         connection.execute("PRAGMA foreign_keys = ON")
         connection.executescript(SCHEMA)
+        migrate_pos_records_schema(connection)
 
         connection.execute(
             """
