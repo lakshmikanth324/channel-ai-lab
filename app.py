@@ -20,8 +20,15 @@ def load_data(database_path: str, modified_time: float) -> pd.DataFrame:
 
 st.set_page_config(page_title="Channel Sales Forecasts", layout="wide")
 st.title("Channel Sales Forecast Evaluation")
-st.caption("Chronological holdout comparison for monthly sales. Test predictions use a one-step-ahead backtest.")
+test_months = predictions.loc[predictions["split"] == "test", "month"]
 
+if test_months.empty:
+    st.warning("No test-period predictions are available.")
+    st.stop()
+
+st.caption(
+    f"Test period: {test_months.min():%Y-%m} through {test_months.max():%Y-%m}."
+)
 with st.sidebar:
     st.header("Forecast settings")
     database_path = Path(os.environ.get("CHANNEL_AI_DB", str(DEFAULT_DATABASE)))
