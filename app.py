@@ -20,6 +20,10 @@ def load_data(database_path: str, modified_time: float) -> pd.DataFrame:
 
 st.set_page_config(page_title="Channel Sales Forecasts", layout="wide")
 st.title("Channel Sales Forecast Evaluation")
+st.caption(
+    "Chronological holdout comparison for monthly sales. "
+    "Test predictions use a one-step-ahead backtest."
+)
 test_months = predictions.loc[predictions["split"] == "test", "month"]
 
 if test_months.empty:
