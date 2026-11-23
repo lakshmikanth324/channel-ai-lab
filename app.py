@@ -24,7 +24,7 @@ st.caption(
     "Chronological holdout comparison for monthly sales. "
     "Test predictions use a one-step-ahead backtest."
 )
-test_months = predictions.loc[predictions["split"] == "test", "month"]
+
 
 if test_months.empty:
     st.warning("No test-period predictions are available.")
@@ -49,7 +49,7 @@ try:
 except (ValueError, OSError, Exception) as error:
     st.error(f"Could not build forecasts: {error}")
     st.stop()
-
+test_months = predictions.loc[predictions["split"] == "test", "month"]
 with st.sidebar:
     st.header("Result filters")
     regions = sorted(predictions["region"].dropna().astype(str).unique())
