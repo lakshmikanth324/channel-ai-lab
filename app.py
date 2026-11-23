@@ -79,7 +79,14 @@ filtered_metrics = pd.DataFrame(
     }} for model in MODEL_NAMES]
 ).sort_values("MAE")
 st.dataframe(filtered_metrics, use_container_width=True, hide_index=True)
-st.caption(f"Train through {predictions.loc[predictions['month'] < predictions.loc[predictions['split'] == 'test', 'month'].min(), 'month'].max():%Y-%m}; test from {predictions.loc[predictions['split'] == 'test', 'month'].min():%Y-%m} through {predictions.loc[predictions['split'] == 'test', 'month'].max():%Y-%m}.")
+test_months = predictions.loc[predictions["split"] == "test", "month"]
+if test_months.empty:
+    st.warning("No test-period predictions are available.")
+    st.stop()
+
+st.caption(
+    f"Test period: {test_months.min():%Y-%m} through {test_months.max():%Y-%m}."
+)
 
 st.subheader("Forecast error by business dimension")
 left, right = st.columns(2)
